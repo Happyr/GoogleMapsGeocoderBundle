@@ -20,8 +20,8 @@
         "mockery/mockery": "*"
     },
     "autoload": {
-        "psr-0": { "HappyR\\Google\\ApiBundle": "" }
+        "psr-0": { "HappyR\\Google\\GeocoderBundle": "" }
     },
-    "target-dir": "HappyR/Google/ApiBundle"
+    "target-dir": "HappyR/Google/GeocoderBundle"
     
 }
