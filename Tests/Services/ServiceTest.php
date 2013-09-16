@@ -1,14 +1,14 @@
 <?php
 
 
-namespace HappyR\Google\AnalyticsBundle\Tests\Services;
+namespace HappyR\Google\GeocoderBundle\Tests\Services;
 
 /**
  * Class TokenServiceTest
  *
  *
  */
-class TokenServiceTest extends \PHPUnit_Framework_TestCase
+class ServiceTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
