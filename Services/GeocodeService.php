@@ -63,7 +63,7 @@ class GeocodeService
      */
     public function reverseGeocodeAddress($lat,$lang,$raw=false)
     {
-        $response=$this->scraper->scrape(($this->baseUrl.urlencode('latlng='.$lat.','.$lang));
+        $response=$this->scraper->scrape($this->baseUrl.urlencode('latlng='.$lat.','.$lang));
 
         $response=json_decode($response);
 

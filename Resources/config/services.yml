@@ -1,13 +1,13 @@
 
 services:
   happyr.google.geocoder.geocode:
-    class: HappyR\Google\GeocodeBundle\Services\GeocodeService
+    class: HappyR\Google\GeocoderBundle\Services\GeocodeService
     arguments: [@happyr.google.geocoder.scraper]
 
   happyr.google.geocoder.places.autocomplete:
-    class: HappyR\Google\GeocodeBundle\Services\PlacesAutocompleteService
+    class: HappyR\Google\GeocoderBundle\Services\PlacesAutocompleteService
     arguments: [@happyr.google.geocoder.scraper, %happy_r_google_api%]
 
   happyr.google.geocoder.scraper:
-    class: HappyR\Google\GeocodeBundle\Services\PlacesAutocompleteService
+    class: HappyR\Google\GeocoderBundle\Services\ScraperService
     arguments: []
