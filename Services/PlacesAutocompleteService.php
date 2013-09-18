@@ -26,6 +26,11 @@ class PlacesAutocompleteService
     {
         $this->scraper = $scraper;
         $this->baseUrl.='&key='.$config['developer_key'];
+
+        if(isset($config['language']) && $config['language']!=''){
+            $this->baseUrl.='&language='.$config['language'];
+        }
+
     }
 
 

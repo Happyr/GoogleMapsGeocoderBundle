@@ -9,7 +9,7 @@ namespace HappyR\Google\GeocoderBundle\Services;
  */
 class GeocodeService
 {
-    protected $baseUrl='http://maps.googleapis.com/maps/api/geocode/json?sensor=false&';
+    protected $baseUrl='http://maps.googleapis.com/maps/api/geocode/json?sensor=false';
 
     /**
      * @var ScraperService $scraper
@@ -20,10 +20,15 @@ class GeocodeService
 
     /**
      * @param ScraperService $scraper
+     * @param array $config
      */
-    function __construct(ScraperService $scraper)
+    function __construct(ScraperService $scraper, array $config)
     {
         $this->scraper = $scraper;
+
+        if(isset($config['language']) && $config['language']!=''){
+            $this->baseUrl.='&language='.$config['language'];
+        }
     }
 
 
@@ -37,7 +42,7 @@ class GeocodeService
      */
     public function geocodeAddress($text, $raw=false)
     {
-        $response=$this->scraper->scrape($this->baseUrl.'address='.urlencode($text));
+        $response=$this->scraper->scrape($this->baseUrl.'&address='.urlencode($text));
 
         $response=json_decode($response);
 
@@ -63,7 +68,7 @@ class GeocodeService
      */
     public function reverseGeocodeAddress($lat,$lang,$raw=false)
     {
-        $response=$this->scraper->scrape($this->baseUrl.'latlng='.$lat.','.$lang);
+        $response=$this->scraper->scrape($this->baseUrl.'&latlng='.$lat.','.$lang);
 
         $response=json_decode($response);
 

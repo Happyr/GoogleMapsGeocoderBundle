@@ -22,6 +22,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('developer_key')->defaultValue('')->end()
+                //list of supported languages https://developers.google.com/maps/faq#languagesupport
+                ->scalarNode('language')->defaultValue('')->end()
             ->end();
 
         return $treeBuilder;
