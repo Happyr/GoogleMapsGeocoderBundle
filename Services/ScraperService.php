@@ -1,8 +1,6 @@
 <?php
 
-
 namespace HappyR\Google\GeocoderBundle\Services;
-
 
 /**
  * Class Scraper
@@ -13,7 +11,6 @@ namespace HappyR\Google\GeocoderBundle\Services;
  */
 class ScraperService
 {
-
     /**
      * Scrapes a webpage and returns the result
      *
