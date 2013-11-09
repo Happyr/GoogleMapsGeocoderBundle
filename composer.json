@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "A Symfony2 bundle to geocode places with google maps",
     "keywords": ["Google API"],
-    "homepage": "http://developer.happyr.se",
+    "homepage": "http://developer.happyr.se/symfony2-bundles/google-maps-geocoder-bundle",
     "license": "MIT",
     "authors": [
         {
