@@ -22,7 +22,7 @@ class GeocodeService
      * @param ScraperService $scraper
      * @param array $config
      */
-    function __construct(ScraperService $scraper, array $config)
+    public function __construct(ScraperService $scraper, array $config)
     {
         $this->scraper = $scraper;
 
