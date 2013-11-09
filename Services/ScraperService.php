@@ -22,9 +22,8 @@ class ScraperService
     {
 
         if (ini_get('allow_url_fopen')) {
-            return file_get_contents( $url );
-        }
-        elseif (function_exists('curl_init')) {
+            return file_get_contents($url);
+        } elseif (function_exists('curl_init')) {
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
