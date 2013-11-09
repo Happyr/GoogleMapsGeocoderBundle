@@ -17,13 +17,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode=$treeBuilder->root('happy_r_google_geocoder');
+        $rootNode = $treeBuilder->root('happy_r_google_geocoder');
 
         $rootNode
             ->children()
-                ->scalarNode('developer_key')->defaultValue('')->end()
-                //list of supported languages https://developers.google.com/maps/faq#languagesupport
-                ->scalarNode('language')->defaultValue('')->end()
+            ->scalarNode('developer_key')->defaultValue('')->end()
+            //list of supported languages https://developers.google.com/maps/faq#languagesupport
+            ->scalarNode('language')->defaultValue('')->end()
             ->end();
 
         return $treeBuilder;

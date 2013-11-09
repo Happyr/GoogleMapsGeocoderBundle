@@ -9,7 +9,7 @@ namespace HappyR\Google\GeocoderBundle\Services;
  */
 class GeocodeService
 {
-    protected $baseUrl='http://maps.googleapis.com/maps/api/geocode/json?sensor=false';
+    protected $baseUrl = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false';
 
     /**
      * @var ScraperService $scraper
@@ -26,11 +26,10 @@ class GeocodeService
     {
         $this->scraper = $scraper;
 
-        if(isset($config['language']) && $config['language']!=''){
-            $this->baseUrl.='&language='.$config['language'];
+        if (isset($config['language']) && $config['language'] != '') {
+            $this->baseUrl .= '&language=' . $config['language'];
         }
     }
-
 
     /**
      * Geocode an address.
@@ -40,17 +39,17 @@ class GeocodeService
      *
      * @return string|null the response of a request to google
      */
-    public function geocodeAddress($text, $raw=false)
+    public function geocodeAddress($text, $raw = false)
     {
-        $response=$this->scraper->scrape($this->baseUrl.'&address='.urlencode($text));
+        $response = $this->scraper->scrape($this->baseUrl . '&address=' . urlencode($text));
 
-        $response=json_decode($response);
+        $response = json_decode($response);
 
-        if($response->status!='OK'){
+        if ($response->status != 'OK') {
             return null;
         }
 
-        if($raw){
+        if ($raw) {
             return $response->results;
         }
 
@@ -66,22 +65,20 @@ class GeocodeService
      *
      * @return string|null
      */
-    public function reverseGeocodeAddress($lat,$lang,$raw=false)
+    public function reverseGeocodeAddress($lat, $lang, $raw = false)
     {
-        $response=$this->scraper->scrape($this->baseUrl.'&latlng='.$lat.','.$lang);
+        $response = $this->scraper->scrape($this->baseUrl . '&latlng=' . $lat . ',' . $lang);
 
-        $response=json_decode($response);
+        $response = json_decode($response);
 
-        if($response->status!='OK'){
+        if ($response->status != 'OK') {
             return null;
         }
 
-        if($raw){
+        if ($raw) {
             return $response->results;
         }
 
         return $response->results[0]->formatted_address;
-
     }
-
 }
