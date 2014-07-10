@@ -3,17 +3,16 @@
     "type": "symfony-bundle",
     "description": "A Symfony2 bundle to geocode places with google maps",
     "keywords": ["Google API"],
-    "homepage": "http://developer.happyr.se/symfony2-bundles/google-maps-geocoder-bundle",
+    "homepage": "http://developer.happyr.com/symfony2-bundles/google-maps-geocoder-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Tobias Nyholm",
-            "email": "tobias@happyrecruiting.se"
+            "email": "tobias@happyr.com"
         }
     ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/framework-bundle": "2.*",
         "symfony/yaml": "2.*"
     },
     "require-dev": {
