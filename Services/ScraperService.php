@@ -16,13 +16,16 @@ class ScraperService
      *
      * @param string $url
      *
-     * @return string|boolean Returns a string containing the webpage or false
+     * @return string Returns a string containing the webpage or a json string with {"status":"FAIL"}
      */
     public function scrape($url)
     {
 
         if (ini_get('allow_url_fopen')) {
-            return file_get_contents($url);
+            $response = @file_get_contents($url);
+            if ($response !== false) {
+                return $response;
+            }
         } elseif (function_exists('curl_init')) {
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $url);
@@ -32,6 +35,6 @@ class ScraperService
             return curl_exec($curl);
         }
 
-        return false;
+        return '{"status":"FAIL"}';
     }
 }
