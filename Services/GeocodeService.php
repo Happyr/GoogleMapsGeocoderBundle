@@ -83,11 +83,12 @@ class GeocodeService
         return $response->results[0]->formatted_address;
     }
 
-    public function returnException($response){
+    public function returnException($response)
+    {
         if ($response->error_message) {
             $msg = $response->error_message;
         } else {
-            $msg = 'There has been an eror while communicating with Google API';
+            $msg = 'There has been an error while communicating with Google API';
         }
         throw new Exception($msg);
     }
