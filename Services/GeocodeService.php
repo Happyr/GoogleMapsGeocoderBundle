@@ -1,7 +1,6 @@
 <?php
 
 namespace HappyR\Google\GeocoderBundle\Services;
-use Exception;
 
 /**
  * Class GeocodeService
@@ -47,7 +46,7 @@ class GeocodeService
         $response = json_decode($response);
 
         if ($response->status != 'OK') {
-            return $this->returnException($response);
+            $this->handleError($response);
         }
 
         if ($raw) {
@@ -73,7 +72,7 @@ class GeocodeService
         $response = json_decode($response);
 
         if ($response->status != 'OK') {
-            return $this->returnException($response);
+            $this->handleError($response);
         }
 
         if ($raw) {
@@ -83,12 +82,12 @@ class GeocodeService
         return $response->results[0]->formatted_address;
     }
 
-    public function returnException($response){
+    public function handleError($response){
         if ($response->error_message) {
             $msg = $response->error_message;
         } else {
             $msg = 'There has been an eror while communicating with Google API';
         }
-        throw new Exception($msg);
+        throw new \Exception($msg);
     }
 }
