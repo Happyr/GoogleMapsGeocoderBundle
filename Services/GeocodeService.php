@@ -46,7 +46,7 @@ class GeocodeService
         $response = json_decode($response);
 
         if ($response->status != 'OK') {
-            return null;
+            $this->handleError($response);
         }
 
         if ($raw) {
@@ -72,7 +72,7 @@ class GeocodeService
         $response = json_decode($response);
 
         if ($response->status != 'OK') {
-            return null;
+            $this->handleError($response);
         }
 
         if ($raw) {
@@ -80,5 +80,15 @@ class GeocodeService
         }
 
         return $response->results[0]->formatted_address;
+    }
+
+    public function handleError($response)
+    {
+        if ($response->error_message) {
+            $msg = $response->error_message;
+        } else {
+            $msg = 'There has been an error while communicating with Google API';
+        }
+        throw new \Exception($msg);
     }
 }
