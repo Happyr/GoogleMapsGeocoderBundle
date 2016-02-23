@@ -9,7 +9,7 @@ namespace HappyR\Google\GeocoderBundle\Services;
  */
 class GeocodeService
 {
-    protected $baseUrl = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false';
+    protected $baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false';
 
     /**
      * @var ScraperService $scraper
