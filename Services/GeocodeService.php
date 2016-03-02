@@ -84,7 +84,7 @@ class GeocodeService
 
     public function handleError($response)
     {
-        if ($response->error_message) {
+        if (isset($response->error_message)) {
             $msg = $response->error_message;
         } else {
             $msg = 'There has been an error while communicating with Google API';
