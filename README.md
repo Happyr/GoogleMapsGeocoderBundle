@@ -1,4 +1,4 @@
 GoogleMapsGeocoderBundle
 =====================
 
-A symfony2 bundle geocode stuff with google maps
+This bundle in deprecated. You should use the much more awesome [BazingaGeocoderBundle](https://github.com/geocoder-php/BazingaGeocoderBundle)
